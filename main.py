@@ -18,6 +18,10 @@ def main():
     profile_dir = setup_chrome_profile()
     while True:
         pageUrl, postText, article_id = get_article()
+        if pageUrl is None:
+            print("No article found")
+            time.sleep(30*60)
+            continue
         with sync_playwright() as p:
             browser = p.chromium.launch_persistent_context(
                 profile_dir,

@@ -16,7 +16,10 @@ def get_article():
         pageUrl = article.get("Li_page_url", pageUrl) # Use provided URL as fallback
         postText = article.get("Li_post_content", postText) # Use provided text as fallback
         article_id = article.get("_id")
-    return pageUrl, postText, article_id
+        return pageUrl, postText, article_id
+    else:
+        print("No article found")
+        return None, None, None
 
 
 
